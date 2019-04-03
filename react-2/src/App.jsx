@@ -12,18 +12,20 @@ class App extends Component {
   }
 
   navigate = pos1Neg1 => {
-    if(this.currentIndex === 0) return
-    if(this.currentIndex === this.data.length) return
-    const newIndex = this.currentIndex + pos1Neg1
+    if(this.state.currentIndex === 0 && pos1Neg1 < 0) return
+    if(this.state.currentIndex === this.state.data.length -1 && pos1Neg1 > 0) return
+    
+    let newIndex = this.state.currentIndex + pos1Neg1
     this.setState({currentIndex: newIndex})
   }
+
   
   render() {
     return (
       <div className="App">
-        <h5>Home</h5>
-        <Card currentIndex={this.state.currentIndex} data={this.data}/>
-        <Buttons currentIndex={this.currentIndex} navigate={() => this.navigate()}/>
+        <h3 className="home">Home</h3>
+        <Card currentIndex={this.state.currentIndex} data={this.state.data}/>
+        <Buttons currentIndex={this.state.currentIndex} navigate={this.navigate}/>
       </div>
     );
   }
