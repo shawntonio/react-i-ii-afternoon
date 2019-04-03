@@ -19,13 +19,25 @@ class App extends Component {
     this.setState({currentIndex: newIndex})
   }
 
+  delete = indexToDelete => {
+    if(this.state.data.length === 1) return
+
+    const newData = this.state.data.filter((person, i) => i !== indexToDelete)
+
+    if(this.state.currentIndex +1 === this.state.data.length) this.setState({currentIndex: this.state.currentIndex - 1})
+
+
+    this.setState({
+      data: newData,
+    })
+  }
   
   render() {
     return (
       <div className="App">
         <h3 className="home">Home</h3>
         <Card currentIndex={this.state.currentIndex} data={this.state.data}/>
-        <Buttons currentIndex={this.state.currentIndex} navigate={this.navigate}/>
+        <Buttons currentIndex={this.state.currentIndex} navigate={this.navigate} delete={this.delete}/>
       </div>
     );
   }
