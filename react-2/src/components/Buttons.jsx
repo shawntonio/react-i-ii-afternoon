@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 export default class Buttons extends Component {
 
 	render(){
@@ -12,6 +11,7 @@ export default class Buttons extends Component {
 				<button className="editButton">New</button>
 
 				<button onClick={() => this.props.navigate(1)} className="navButton">Next{">"}</button>
+
 			</div>
 		)
 	}
