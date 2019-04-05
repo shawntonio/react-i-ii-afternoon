@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import '../Form.css'
+
 export default class Form extends Component {
 
 	state = {
@@ -25,7 +27,7 @@ export default class Form extends Component {
 	render(){
 
 		return (
-			<div className="form">
+			<div className={!this.props.formOn ? "hideForm" : ""}>
 				<div className="formInput">
 					First Name:<input onChange={(e) => this.inputHandler("name",{first: e.target.value, last: this.state.name.last})} type="text" className="formInputBox"/>
 				</div>
@@ -51,15 +53,18 @@ export default class Form extends Component {
 				</div>
 
 				<div className="formInput moviesInput">
-					Favorite Movies: 
-					<input onBlur={(e) => this.inputHandler("favoriteMovies",[e.target.value, this.state.favoriteMovies[1], this.state.favoriteMovies[2]])} type="text" className="movieInputBox"/> 
-					<input onBlur={(e) => this.inputHandler("favoriteMovies",[this.state.favoriteMovies[0],e.target.value,this.state.favoriteMovies[2]])} type="text" className="movieInputBox"/> 
-					<input onBlur={(e) => this.inputHandler("favoriteMovies",[this.state.favoriteMovies[0],this.state.favoriteMovies[1],e.target.value])} type="text" className="movieInputBox"/>
+					Favorite Movies:
+
+					<div className="movieBoxes">
+						<input onBlur={(e) => this.inputHandler("favoriteMovies",[e.target.value, this.state.favoriteMovies[1], this.state.favoriteMovies[2]])} type="text" className="movieInputBox"/> 
+						<input onBlur={(e) => this.inputHandler("favoriteMovies",[this.state.favoriteMovies[0],e.target.value,this.state.favoriteMovies[2]])} type="text" className="movieInputBox"/> 
+						<input onBlur={(e) => this.inputHandler("favoriteMovies",[this.state.favoriteMovies[0],this.state.favoriteMovies[1],e.target.value])} type="text" className="movieInputBox"/>
+					</div> 
 				</div>
 
-				<button onClick={() => this.props.addPerson(this.state)} className="addPerson">Add</button>
+				<button onClick={() => this.props.addPerson(this.state)} className="editButton">Add</button>
 
-				<button onClick={() => this.editCardFn()} className="editCard">Edit</button>
+				<button onClick={() => this.editCardFn()} className="editButton">Edit</button>
 			</div>
 
 )

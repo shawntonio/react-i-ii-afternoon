@@ -11,6 +11,7 @@ class App extends Component {
   state = {
     data: Data,
     currentIndex: 0,
+    formOn: false
   }
 
   navigate = pos1Neg1 => {
@@ -45,7 +46,9 @@ class App extends Component {
     })
   }
 
-
+  toggleForm = () => {
+    this.setState({formOn: !this.state.formOn})
+  }
 
   
   render() {
@@ -54,9 +57,9 @@ class App extends Component {
         <h3 className="home">Home</h3>
         <Card currentIndex={this.state.currentIndex} data={this.state.data}/>
 
-        <Buttons data={this.state.data} currentIndex={this.state.currentIndex} navigate={this.navigate} delete={this.delete}/>
+        <Buttons toggleForm={this.toggleForm} data={this.state.data} currentIndex={this.state.currentIndex} navigate={this.navigate} delete={this.delete}/>
 
-        <Form editCard={this.editCard} addPerson={this.addPerson} data={this.state.data} currentIndex={this.state.currentIndex}/>
+        <Form formOn={this.state.formOn} editCard={this.editCard} addPerson={this.addPerson} data={this.state.data} currentIndex={this.state.currentIndex}/>
       </div>
     )
   }

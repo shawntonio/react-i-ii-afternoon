@@ -1,0 +1,26 @@
+.buttonBar {
+	width: 80%;
+	display: flex;
+	justify-content: space-between;
+	margin-top: 10px;
+}
+
+.navButton {
+	background-color: #222222;
+	color: #ffffff;
+	border: none;
+	font-size: 1em;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.editButton {
+	background-color: #34A5DA;
+	border: none;
+	border-radius: 30px;
+	color: #fff;
+	padding: 5px 10px;
+	margin: 0 5px;
+	font-weight: bold;
+	cursor: pointer;
+}

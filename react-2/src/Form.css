@@ -1,0 +1,43 @@
+
+.formInput {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 10px;
+	color: #fff;
+	
+}
+
+.formInputBox {
+	background-color: #EBEBEB;
+}
+
+.moviesInput {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start
+}
+
+.movieBoxes {
+	display: flex;
+	justify-content: right;
+}
+.movieInputBox {
+	margin-top: 10px;
+	width: 100%;
+	margin: 2px;
+}
+
+.editButton {
+	background-color: #34A5DA;
+	border: none;
+	border-radius: 30px;
+	color: #fff;
+	padding: 5px 10px;
+	margin: 10px 5px;
+	font-weight: bold;
+}
+
+.hideForm {
+	visibility: hidden;
+}
+
